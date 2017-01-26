@@ -8,10 +8,13 @@
  *  5 Задать одномерный массив и найти в нем минимальный и максимальный элементы;
  *  6 Написать простой консольный калькулятор. Пользователь вводит два числа и операцию, которую хочет выполнить, программа вычисляет результат и выводит в консоль;
  */
-public class Main {
+public class Main2 {
     public static void main(String[] args) {
-        for (int i =1;i<10; i++){
-            System.out.println("i= "+i);
+        int [] Arr= new int[5];
+        for (int iArr= 1;iArr<5;iArr++){
+            Arr[iArr]=iArr+1;
+            System.out.println(Arr[iArr]+"  iArr = "+iArr);
+
         }
     }
 }
