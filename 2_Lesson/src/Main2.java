@@ -10,10 +10,33 @@
  */
 public class Main2 {
     public static void main(String[] args) {
-        int [] Arr= new int[5];
-        for (int iArr= 1;iArr<5;iArr++){
-            Arr[iArr]=iArr+1;
-            System.out.println(Arr[iArr]+"  iArr = "+iArr);
+        int[] Arr = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
+        System.out.println("Массив Arr, имеет значения: ");
+        for (int iArr=0; iArr<Arr.length; iArr++){
+            System.out.print(Arr[iArr]+" ");
+        }
+        System.out.println();
+        System.out.println("Новые данные Массива Arr: ");
+        for (int bArr= 0; bArr<Arr.length; bArr++){
+            switch (Arr[bArr]){
+                case 1:
+                    Arr[bArr]=0;
+                    break;
+                case 0:
+                    Arr[bArr]=1;
+                    break;
+            }
+            System.out.print(Arr[bArr]+" ");
+        }
+        System.out.println();
+        System.out.println("Задание 3, новый массив");
+        int[] Mass2 =new int[8];
+        for(int i=0;i<Mass2.length;i++){
+            Mass2[i]=i*3+1;
+            System.out.print(Mass2[i]+" ");
+        }
+        int[] Mass3 = { 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 };
+        for(int i=0; i<Mass3.length; i++){
 
         }
     }
