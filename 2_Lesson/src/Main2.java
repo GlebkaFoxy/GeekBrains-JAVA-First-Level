@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -12,7 +13,7 @@ import java.io.InputStreamReader;
  *  6 Написать простой консольный калькулятор. Пользователь вводит два числа и операцию, которую хочет выполнить, программа вычисляет результат и выводит в консоль;
  */
 public class Main2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int[] Arr = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
         System.out.println("Задание 1 и 2");
         System.out.println("Массив Arr, имеет значения: ");
@@ -63,9 +64,44 @@ public class Main2 {
         System.out.println("Задание 6, консольный калькулятор");
 
         System.out.println("Введите первое значение");
-        BufferedReader br =new BufferedReader(InputStreamReader(System.in));
-        int First = Integer.par
-        System.out.println("Введите знак *,/,+,-");
-        System.out.println("Введите второе значение");
+
+
+//        BufferedReader reader =new BufferedReader(new InputStreamReader(System.in));
+//        int NumberOne= Integer.parseInt(reader.readLine());
+//        System.out.println("Введите знак *,/,+,-");
+//        String Simvol= reader.readLine();
+//        System.out.println("Введите второе значение");
+//        int NumberTwo= Integer.parseInt(reader.readLine());
+//
+//        switch (Simvol){
+//            case "*":
+//                System.out.print(NumberOne*NumberTwo);
+//                break;
+//            case "/":
+//                System.out.print(NumberOne/NumberTwo);
+//                break;
+//            case ("+"):
+//                System.out.print(NumberOne+NumberTwo);
+//                break;
+//            case "-":
+//                System.out.print(NumberOne-NumberTwo);
+//                break;
+//        }
+
+        int NumberOne=10;
+        String Simvol=("+");
+        int NumberTwo=5;
+        switch (Simvol){
+            case("*"):
+                System.out.println(NumberOne*NumberTwo);
+            case "/":
+                System.out.println(NumberOne/NumberTwo);
+            case("+"):
+                System.out.println(NumberOne+NumberTwo);
+            case "-":
+                System.out.println(NumberOne-NumberTwo);
+        }
+        System.out.println();
     }
+
 }
