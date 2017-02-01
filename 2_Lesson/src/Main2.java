@@ -66,42 +66,29 @@ public class Main2 {
         System.out.println("Введите первое значение");
 
 
-//        BufferedReader reader =new BufferedReader(new InputStreamReader(System.in));
-//        int NumberOne= Integer.parseInt(reader.readLine());
-//        System.out.println("Введите знак *,/,+,-");
-//        String Simvol= reader.readLine();
-//        System.out.println("Введите второе значение");
-//        int NumberTwo= Integer.parseInt(reader.readLine());
-//
-//        switch (Simvol){
-//            case "*":
-//                System.out.print(NumberOne*NumberTwo);
-//                break;
-//            case "/":
-//                System.out.print(NumberOne/NumberTwo);
-//                break;
-//            case ("+"):
-//                System.out.print(NumberOne+NumberTwo);
-//                break;
-//            case "-":
-//                System.out.print(NumberOne-NumberTwo);
-//                break;
-//        }
+        BufferedReader reader =new BufferedReader(new InputStreamReader(System.in));
+        int NumberOne= Integer.parseInt(reader.readLine());
+        System.out.println("Введите знак *,/,+,-");
+        String Simvol= reader.readLine();
+        System.out.println("Введите второе значение");
+        int NumberTwo= Integer.parseInt(reader.readLine());
 
-        int NumberOne=10;
-        String Simvol=("+");
-        int NumberTwo=5;
         switch (Simvol){
-            case("*"):
-                System.out.println(NumberOne*NumberTwo);
+            case "*":
+                System.out.print(NumberOne*NumberTwo);
+                break;
             case "/":
-                System.out.println(NumberOne/NumberTwo);
-            case("+"):
-                System.out.println(NumberOne+NumberTwo);
+                System.out.print(NumberOne/NumberTwo);
+                break;
+            case ("+"):
+                System.out.print(NumberOne+NumberTwo);
+                break;
             case "-":
-                System.out.println(NumberOne-NumberTwo);
+                System.out.print(NumberOne-NumberTwo);
+                break;
         }
-        System.out.println();
+
+
     }
 
 }
