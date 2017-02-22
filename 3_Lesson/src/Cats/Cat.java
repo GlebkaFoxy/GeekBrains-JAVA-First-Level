@@ -5,10 +5,19 @@ package Cats;
  */
 public class Cat {
     public static void main(String[] args) {
-        int a=1;
-        while (a!=2){
-         a = (int)(Math.random()*3);
-            System.out.println(a);}
-
+        MM(0);
     }
+
+
+
+
+
+
+     public static void MM(int Age){
+        while (Age<4){
+         System.out.println("CDOBAAAA");
+        Age++;}
+     }
+
+
 }
