@@ -24,7 +24,7 @@ public class AFurst {
             if (FieldFuul()){
                 System.out.println("ПОТРАЧЕНО");
                 break;}
-            if(ChekWin(plaerDot)){
+            if(CheckWin(plaerDot)){
                 System.out.println("Победитель ты");
             break;}
 
@@ -34,7 +34,7 @@ public class AFurst {
                 System.out.println("ПОТРАЧЕНО");
                 break;
             }
-            if (ChekWin(aiDot)){
+            if (CheckWin(aiDot)){
                 System.out.println("Победила ШЕЛЕЗЯКА");
                 break;
             }
@@ -77,12 +77,14 @@ public class AFurst {
     static void TurnAI(){
         System.out.println("Ход АI");
 
+
         int a =(int)(Math.random()*3);
         int b =(int)(Math.random()*3);
         while (field[a][b]!=emptiDot){
+            if(IIBlocPlaerGor()==false){
             a = (int)(Math.random()*3);
-            b = (int)(Math.random()*3);}
-            System.out.println("АИ выдал значение "+(a+1)+" "+(b+1));
+            b = (int)(Math.random()*3);
+            System.out.println("АИ выдал значение "+(a+1)+" "+(b+1));}}
             field[a][b]=aiDot;
 
         printMass();
@@ -96,15 +98,46 @@ public class AFurst {
         }
         return true;
     }
-    static boolean ChekWin(char Dot){
+    static boolean CheckWin(char Dot){
         for(int i=0; i<field.length;i++){
             if(field[i][0]==Dot && field[i][1]==Dot && field[i][2]==Dot){return true;}
         }
         for(int j=0; j<field.length;j++){
             if(field[0][j]==Dot && field[1][j]==Dot && field[2][j]==Dot){return true;}
         }
+        for(int i=0;i<field.length;i++){
+            if (field[0][0]==Dot && field[1][1]==Dot && field[2][2]==Dot){return true;}
+            if(field[0][2]==Dot && field[1][1]==Dot && field[2][0]==Dot){return true;}
+        }
         return false;
     }
+
+    static boolean IIBlocPlaerGor(){
+        for (int i=0;i<field.length;i++){
+            if (field[i][0]==plaerDot && field[i][1]==plaerDot){field[i][2]=aiDot; return true;}
+            if (field[i][1]==plaerDot && field[i][2]==plaerDot){field[i][0]=aiDot; return true;}
+            if (field[i][0]==plaerDot && field[i][2]==plaerDot){field[i][1]=aiDot; return true;}
+
+        }
+        for (int j=0;j<field.length;j++){
+            if (field[0][j]==plaerDot && field[1][j]==plaerDot) {field[2][j]=aiDot; return true;}
+            if (field[1][j]==plaerDot && field[2][j]==plaerDot) {field[0][j]=aiDot; return true;}
+            if (field[0][j]==plaerDot && field[2][j]==plaerDot) {field[1][j]=aiDot; return true;}
+        }
+        for (int a=0, b=0;b<field.length;a++,b++){
+            if (field[0][0]==plaerDot && field[1][1]==plaerDot) {field[2][2]=aiDot; return true;}
+            if (field[0][0]==plaerDot && field[2][2]==plaerDot) {field[1][1]=aiDot; return true;}
+            if (field[2][2]==plaerDot && field[1][1]==plaerDot) {field[0][0]=aiDot; return true;}
+        }
+        for (int a=2, b=0; b<field.length;a--,b++){
+            if (field[2][0]==plaerDot && field[1][1]==plaerDot) {field[0][2]=aiDot; return true;}
+            if (field[2][0]==plaerDot && field[0][2]==plaerDot) {field[1][1]=aiDot; return true;}
+            if (field[0][2]==plaerDot && field[1][1]==plaerDot) {field[2][0]=aiDot; return true;}
+        }
+    return false;
+    }
+
+
 }
 
 
