@@ -60,7 +60,7 @@ public class AFurst {
     }
 
     static void turnPlaer()  {
-        System.out.print("Введите номер столбца и номер строки: ");
+        System.out.print("Введите номер столбца и номер строки от 1 до 3:   ");
         int i = sc.nextInt();
         int j = sc.nextInt();
         while (field[i-1][j-1]!=emptiDot){
@@ -126,16 +126,16 @@ public class AFurst {
             if (field[1][j]==plaerDot && field[2][j]==plaerDot && field[0][j]!=aiDot) {field[0][j]=aiDot; return true;}
             if (field[0][j]==plaerDot && field[2][j]==plaerDot && field[1][j]!=aiDot) {field[1][j]=aiDot; return true;}
         }
-//        for (int a=0, b=0;b<field.length;a++,b++){
-//            if (field[0][0]==plaerDot && field[1][1]==plaerDot && field[2][2]!=aiDot) {field[2][2]=aiDot; return true;}
-//            if (field[0][0]==plaerDot && field[2][2]==plaerDot && field[1][1]!=plaerDot) {field[1][1]=aiDot; return true;}
-//            if (field[2][2]==plaerDot && field[1][1]==plaerDot && field[0][0]!=plaerDot) {field[0][0]=aiDot; return true;}
-//        }
-//        for (int a=2, b=0; b<field.length;a--,b++){
-//            if (field[2][0]==plaerDot && field[1][1]==plaerDot && field[0][2]!=plaerDot) {field[0][2]=aiDot; return true;}
-//            if (field[2][0]==plaerDot && field[0][2]==plaerDot && field[1][1]!=plaerDot) {field[1][1]=aiDot; return true;}
-//            if (field[0][2]==plaerDot && field[1][1]==plaerDot && field[2][0]!=plaerDot) {field[2][0]=aiDot; return true;}
-//        }
+        for (int a=0, b=0;b<field.length;a++,b++){
+            if (field[0][0]==plaerDot && field[1][1]==plaerDot && field[2][2]!=aiDot) {field[2][2]=aiDot; return true;}
+            if (field[0][0]==plaerDot && field[2][2]==plaerDot && field[1][1]!=aiDot) {field[1][1]=aiDot; return true;}
+            if (field[2][2]==plaerDot && field[1][1]==plaerDot && field[0][0]!=aiDot) {field[0][0]=aiDot; return true;}
+        }
+        for (int a=2, b=0; b<field.length;a--,b++){
+            if (field[2][0]==plaerDot && field[1][1]==plaerDot && field[0][2]!=aiDot) {field[0][2]=aiDot; return true;}
+            if (field[2][0]==plaerDot && field[0][2]==plaerDot && field[1][1]!=aiDot) {field[1][1]=aiDot; return true;}
+            if (field[0][2]==plaerDot && field[1][1]==plaerDot && field[2][0]!=aiDot) {field[2][0]=aiDot; return true;}
+        }
     return false;
     }
 
