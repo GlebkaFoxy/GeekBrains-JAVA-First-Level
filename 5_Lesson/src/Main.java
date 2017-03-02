@@ -1,3 +1,7 @@
+import Animals.*;
+
+
+
 /**
  * Created by user on 01.03.2017.
  *
@@ -11,6 +15,21 @@
 public class Main {
 
     public static void main(String[] args) {
+        int checkValue =7;
+
+
+        Animals[] animals= new Animals[3];
+        animals [1] = new Cat("Dinge",7);
+        animals [2] = new Dog("Gorge",5);
+        animals [0] = new Hourse("Arue",12);
+        System.out.println("Что-то");
+        for (int i=0;i<animals.length;i++){
+            if (Animals.age<checkValue){
+                System.out.println(Animals.name+" Проиграл");
+            }else {
+                System.out.println(Animals.name+" Перепрыгнул");
+            }
+        }
 
     }
 }
