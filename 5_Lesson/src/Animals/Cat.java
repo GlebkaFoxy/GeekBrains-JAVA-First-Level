@@ -5,10 +5,12 @@ package Animals;
  */
 public class Cat extends Animals {
 
+     public Cat(String kindOfAnimal, String name, int age, int run, int swim, int jump){
+        super(kindOfAnimal, name,age,run,swim,jump);
 
-
-  public Cat(String name, int age){
-        this.name=name;
-        this.age=age;
     }
+public Cat(int run){
+    super(run);
+    super(Run(run));
+}
 }

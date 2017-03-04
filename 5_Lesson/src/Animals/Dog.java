@@ -5,8 +5,8 @@ package Animals;
  */
 public class Dog extends Animals {
 
-    public Dog(String name, int age){
-        this.name=name;
-        this.age=age;
+    public Dog(String kindOfAnimal, String name, int age, int run, int swim, int jump){
+        super(kindOfAnimal, name,age,run,swim,jump);
     }
+
 }
