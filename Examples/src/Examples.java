@@ -1,5 +1,15 @@
 /**
  * Created by user on 26.02.2017.
+ * Меня зовут Амиго.
+
+ Я согласен на зарплату $800/месяц в первый год.
+ Я согласен на зарплату $1500/месяц во второй год.
+ Я согласен на зарплату $2200/месяц в третий год.
+ Я согласен на зарплату $2700/месяц в четвертый год.
+ Я согласен на зарплату $3200/месяц в пятый год.
+
+ Поцелуй мой блестящий металлический зад!
+
  */
 public class Examples {
 
@@ -8,11 +18,16 @@ public class Examples {
 
 
     public static void main(String[] args) {
-        metod_Privazki_Objects();
-
-        metod_Privazki_Peremennih();
-
-        createObject();
+        System.out.println("Я согласен на зарплату $800/месяц в первый год.");
+        System.out.println("Я согласен на зарплату $1500/месяц во второй год.");
+        System.out.println("Я согласен на зарплату $2200/месяц в третий год.");
+        System.out.println("Я согласен на зарплату $2700/месяц в четвертый год.");
+        System.out.println("Я согласен на зарплату $3200/месяц в пятый год.");
+        //        metod_Privazki_Objects();
+//
+//        metod_Privazki_Peremennih();
+//
+//        createObject();
 
     }
      static void metod_Privazki_Peremennih(){

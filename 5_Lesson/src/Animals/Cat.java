@@ -1,16 +1,33 @@
 package Animals;
 
 /**
- * Created by user on 01.03.2017.
+ * Created by user on 06.03.2017.
  */
 public class Cat extends Animals {
+public String name;
 
-     public Cat(String kindOfAnimal, String name, int age, int run, int swim, int jump){
-        super(kindOfAnimal, name,age,run,swim,jump);
+int run;
+int swim;
+int jump;
+
+    public Cat(String name, int run,int swim, int jump) {
+
+        this.name=name;
+        this.run=run;
+        this.swim=swim;
+        this.jump=jump;
 
     }
-public Cat(int run){
-    super(run);
-    super(Run(run));
-}
+
+
+
+    public void Run(){
+        super.Run(name,run);
+    }
+    public void Swim(){
+        super.Swim(name ,swim);
+    }
+    public void Jump(){
+        super.Jump(name,jump);
+    }
 }

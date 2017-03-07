@@ -1,43 +1,58 @@
 package Animals;
 
-import sun.applet.Main;
+
 
 /**
  * Created by user on 01.03.2017.
  */
-public class Animals extends Main {
-   protected String kindOfAnimal;
-    protected  String name;
-    protected  int age;
-    protected   int run;
-    protected  int swim;
-    protected  int jump;
+public abstract class Animals  {
+    String name;
+    int run;
+    int swim;
+    int jump;
 
-Animals (String kindOfAnimal, String name, int age, int run, int swim, int jump){
-        this.kindOfAnimal=kindOfAnimal;
+
+    public Animals(){}
+    public Animals(String name, int run,int swim, int jump) {
+
         this.name=name;
-        this.age=age;
         this.run=run;
         this.swim=swim;
         this.jump=jump;
-}
 
-Animals(int run){
-    this.run=run;
+    }
 
-    static void Run(){
 
-        if (run<5){
-            System.out.println("Бежит медленно");
-        }if (run>5 && run<9){
-            System.out.println("Нормальная скорость бега");
-        }if (run>=9){
-            System.out.println("очень быстр");
+    void Swim(String name, int swim){
+        if(swim < 1){
+            System.out.println(name+" Утонул");
+        }
+        if (swim >= 1 && swim < 4) {
+            System.out.println(name+" хорошо плывём");
+        }
+        if(swim > 4) {
+            System.out.println(name+" Очень быстро плывёт");
         }
     }
+
+    void Jump(String name, int jump){
+        if(jump < 1){
+            System.out.println(name+" не перепрыгнет препятствие");
+        }if (jump >= 1 && jump <= 2){
+            System.out.println(name+" перепрыгнет препятствие");
+        }if(jump > 2){
+            System.out.println(name+" перепрыгнет высокое препятствие");}
+    }
+
+    public void Run(String name, int run) {
+        if(run<5){
+            System.out.println(name+" Медленно бежит");
+        }if (run >= 5 && run <=9){
+            System.out.println(name+" Хорошая скорость");
+        }if(run>9){
+            System.out.println(name+" Очень быстрый");}
+    }
+
 }
 
 
-
-
-}
