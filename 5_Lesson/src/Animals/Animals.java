@@ -7,15 +7,17 @@ package Animals;
  */
 public abstract class Animals  {
     String name;
+    final int age=5;
     int run;
     int swim;
     int jump;
 
 
-    public Animals(){}
-    public Animals(String name, int run,int swim, int jump) {
+
+    public Animals(String name, int run, int swim, int jump) {
 
         this.name=name;
+
         this.run=run;
         this.swim=swim;
         this.jump=jump;

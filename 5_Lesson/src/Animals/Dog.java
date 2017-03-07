@@ -12,6 +12,7 @@ public class Dog extends Animals {
 
     public Dog(String name, int run,int swim, int jump) {
 
+        super(age);
         this.name=name;
         this.run=run;
         this.swim=swim;

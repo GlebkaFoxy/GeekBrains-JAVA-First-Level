@@ -12,6 +12,7 @@ public class Hourse extends Animals {
 
     public Hourse(String name, int run,int swim, int jump) {
 
+        super(age);
         this.name=name;
         this.run=run;
         this.swim=swim;
