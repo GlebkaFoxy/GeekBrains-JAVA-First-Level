@@ -15,9 +15,9 @@ import Animals.*;
 public class Main {
 
     public static void main(String[] args) {
-        Cat cat = new Cat("SSWW",3,0,2);
-        Dog dog = new Dog("Huston",6,5,2);
-        Hourse hourse = new Hourse("Barabara", 12 ,7 ,5);
+        Cat cat = new Cat("SSWW", 3, 0, 2);
+        Dog dog = new Dog("Huston", 6, 5, 2);
+        Hourse hourse = new Hourse("Barabara", 12 , 7, 5);
 
 
         System.out.println("Это котик "+cat.name);

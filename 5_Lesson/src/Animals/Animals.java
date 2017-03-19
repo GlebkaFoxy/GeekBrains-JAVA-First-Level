@@ -6,8 +6,7 @@ package Animals;
  * Created by user on 01.03.2017.
  */
 public abstract class Animals  {
-    String name;
-    final int age=5;
+   public String name;
     int run;
     int swim;
     int jump;
@@ -46,7 +45,7 @@ public abstract class Animals  {
             System.out.println(name+" перепрыгнет высокое препятствие");}
     }
 
-    public void Run(String name, int run) {
+     void Run(String name, int run) {
         if(run<5){
             System.out.println(name+" Медленно бежит");
         }if (run >= 5 && run <=9){

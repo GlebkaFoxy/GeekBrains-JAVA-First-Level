@@ -4,19 +4,10 @@ package Animals;
  * Created by user on 01.03.2017.
  */
 public class Hourse extends Animals {
-    public String name;
 
-    int run;
-    int swim;
-    int jump;
 
-    public Hourse(String name, int run,int swim, int jump) {
-
-        super(age);
-        this.name=name;
-        this.run=run;
-        this.swim=swim;
-        this.jump=jump;
+    public Hourse(String name, int run, int swim, int jump){
+        super(name,run,swim,jump);
 
     }
 

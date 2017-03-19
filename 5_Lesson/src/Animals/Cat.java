@@ -4,19 +4,11 @@ package Animals;
  * Created by user on 06.03.2017.
  */
 public class Cat extends Animals {
-public String name;
 
-int run;
-int swim;
-int jump;
 
-    public Cat(String name, int run,int swim, int jump) {
 
-        super(age);
-        this.name=name;
-        this.run=run;
-        this.swim=swim;
-        this.jump=jump;
+    public Cat(String name, int run, int swim, int jump){
+        super(name,run,swim,jump);
 
     }
 
