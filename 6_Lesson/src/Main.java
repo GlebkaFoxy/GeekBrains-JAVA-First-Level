@@ -1,3 +1,7 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+
 /**
  * Created by user on 07.03.2017.
  *
@@ -9,20 +13,27 @@
  */
 
 public class Main {
-    static String b = "Test2";
-
-    public static void main(String[] args) {
-        StringBuffer s = new StringBuffer("Test");
-        s.ensureCapacity(70);
-        s.setLength(10);
-        s.append(b);
-
-        System.out.println(s.length());
-        System.out.println(s.capacity());
-        System.out.println(s);
-
+    static String name= "VFFV";
+    static String name2 = "vffv";
+    public static void main(String[] args) throws FileNotFoundException {
+        char a =name.charAt(2);
+        char [] b = name.toCharArray();
+        boolean c = name.equals(name2);
+        boolean e = name.equalsIgnoreCase(name2);
+        String d = name.concat(name2);
+        String i = name.toLowerCase();
+        FileInputStream FIO = new FileInputStream("New1.txt");
+        //Metod(a,b,c,d,e,i);
     }
 
+    static void Metod(char a,char[] b, boolean c,String d,boolean e,String i){
+        System.out.println(a);
+        System.out.println(b[3]);
+        System.out.println(c);
+        System.out.println(e);
+        System.out.println(d);
+        System.out.println(i);
+    }
 }
 
 
