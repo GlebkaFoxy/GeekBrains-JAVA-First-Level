@@ -15,19 +15,42 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) {
-       char a = '4';
-        String b = "fff";
+            int i;
+
+        try {
+            BufferedInputStream FIS = new BufferedInputStream(new FileInputStream("New1.txt"));
+            BufferedInputStream FIS2 = new BufferedInputStream(new FileInputStream("New2.txt"));
+            BufferedOutputStream BOS = new BufferedOutputStream(new FileOutputStream("New3.txt"));
+
+            do {
+                i=FIS.read();
+                if (i!=-1){
+                    BOS.write((char) i);
+                                    }
+            }while (i!=-1);
+
+            FIS.close();
 
 
-        b = String.format("GGGf "+
-                "FFRR "+
-                "RRRRE "+
-                "111"+ " 111", 4, 4, 4);
+            do {
+                i = FIS2.read();
+                if (i != -1) {
+                    BOS.write((char) i);
+                }
+            }while (i!=-1);
+                FIS2.close();
+                BOS.close();
 
-        System.out.println(b);
 
+
+        }catch (FileNotFoundException e){
+            System.out.println("Файла не существует");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
+
 
 
 
