@@ -1,5 +1,4 @@
-import com.sun.prism.BufferedImageTools;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 
 import java.io.*;
 
@@ -16,31 +15,16 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) {
-        int i;
-            try{
-                BufferedInputStream fi = new BufferedInputStream(new FileInputStream("New1.txt"));
-                BufferedInputStream fi1 = new BufferedInputStream(new FileInputStream("New2.txt"));
-                BufferedOutputStream fi2 = new BufferedOutputStream(new FileOutputStream("New3.txt"));
-
-                do{
-                    i= fi.read();
-                    if (i != -1) fi2.write(i);
-                }
-                while (i != -1);
-                fi.close();
+       char a = '4';
+        String b = "fff";
 
 
-                do{
-                    i= fi1.read();
-                    if (i != -1) fi2.write(i);
-                }
-                while (i != -1);
-                fi.close();
-                if (fi2 !=null) fi2.close();
+        b = String.format("GGGf "+
+                "FFRR "+
+                "RRRRE "+
+                "111"+ " 111", 4, 4, 4);
 
-            }catch (IOException e){
-                System.out.println("Непредвиденные ошибки");
-            }
+        System.out.println(b);
 
 
     }
