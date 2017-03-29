@@ -1,6 +1,11 @@
 
 
+import sun.text.normalizer.UTF16;
+
 import java.io.*;
+import java.util.Scanner;
+
+import static com.oracle.jrockit.jfr.DataType.UTF8;
 
 /**
  * Created by user on 07.03.2017.
@@ -31,22 +36,35 @@ public class Main {
 
             FIS.close();
 
-
             do {
                 i = FIS2.read();
                 if (i != -1) {
-                    BOS.write((char) i);
+                    BOS.write((char)i);
                 }
             }while (i!=-1);
                 FIS2.close();
-                BOS.close();
-
-
-
+               BOS.close();
         }catch (FileNotFoundException e){
             System.out.println("Файла не существует");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+
+        try {
+            BufferedInputStream bf = new BufferedInputStream(new FileInputStream("Test.txt"));
+
+            byte [] mass =new byte[bf.available()];
+            bf.read(mass);
+            bf.close();
+            String searchWord = new String(mass,"UTF8");
+            boolean ansver = searchWord.contains("свой");
+            System.out.println(ansver);
+
+        }catch (FileNotFoundException e){
+            System.out.println(e);
+        }catch (IOException a){
+            System.out.println(a);
         }
 
     }
