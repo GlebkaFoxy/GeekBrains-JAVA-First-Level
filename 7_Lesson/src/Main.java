@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by user on 29.03.2017.
@@ -21,7 +22,23 @@ class Form extends JFrame {
         setTitle("Test Window");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(300, 300, 400, 400);
-        getContentPane();
+
+
+        JButton  p = new JButton();
+        add(p);
+
+        p.setLayout(new GridLayout(3,3));
+        p.add(new JButton("start 1"));
+        p.add(new JButton("start 2"));
+        p.add(new JButton("start 3"));
+        p.add(new JButton("start 4"));
+        p.add(new JButton("start 5"));
+        p.add(new JButton("start 6"));
+        p.add(new JButton("start 7"));
+        p.add(new JButton("start 8"));
+        p.add(new JButton("start 9"));
+
+
         setVisible(true);
     }
 
