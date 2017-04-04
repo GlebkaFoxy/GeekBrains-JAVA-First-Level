@@ -22,21 +22,14 @@ class Form extends JFrame {
         setTitle("Test Window");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(300, 300, 400, 400);
+        JButton[] b = new JButton[5];
 
+        Box box = Box.createVerticalBox();
+        box.add(b[1]);
+        box.add(Box.createVerticalStrut(170));
+        box.add(new JButton("Test2"));
+        setContentPane(box);
 
-        JButton  p = new JButton();
-        add(p);
-
-        p.setLayout(new GridLayout(3,3));
-        p.add(new JButton("start 1"));
-        p.add(new JButton("start 2"));
-        p.add(new JButton("start 3"));
-        p.add(new JButton("start 4"));
-        p.add(new JButton("start 5"));
-        p.add(new JButton("start 6"));
-        p.add(new JButton("start 7"));
-        p.add(new JButton("start 8"));
-        p.add(new JButton("start 9"));
 
 
         setVisible(true);
