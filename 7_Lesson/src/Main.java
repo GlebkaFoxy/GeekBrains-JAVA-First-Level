@@ -22,12 +22,23 @@ class Form extends JFrame {
         setTitle("Test Window");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(300, 300, 400, 400);
-        JButton[] b = new JButton[5];
+
 
         Box box = Box.createVerticalBox();
-        box.add(b[1]);
-        box.add(Box.createVerticalStrut(170));
-        box.add(new JButton("Test2"));
+
+        JButton RB = new JButton("O---O");
+        JButton VG = new JButton("T---T");
+        JButton GH = new JButton("^---^");
+
+        RB.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        box.add(RB);
+        box.add(Box.createVerticalGlue());
+        VG.setAlignmentX(JComponent.RIGHT_ALIGNMENT);
+        box.add(VG);
+        box.add(Box.createVerticalGlue());
+        GH.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        box.add(GH);
+
         setContentPane(box);
 
 
