@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
+
 /**
  * Created by user on 29.03.2017.
  * Полностью разобраться с кодом, написанным на занятии(архив прикреплен);
@@ -11,39 +12,74 @@ import java.awt.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Form form = new Form();
+       GoGoPeople();
+
+
+
 
     }
+    
+public static void GoGoPeople(){
+    for (int i=0;i<=1000;i++){
+        if (i<=1000){
+            if (i%3 == 0 && i % 5 != 0){
+                System.out.println(i);
+            }
+        }
+    }
+}
+    
 }
 
 
-class Form extends JFrame {
-    public Form() {
-        setTitle("Test Window");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(300, 300, 400, 400);
+//class Form extends JFrame {
+//
+//        Form(){
+//            setBounds(500,400,  400,300);
+//            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//
+//
+//            go2();
+//
+//
+//            setVisible(true);
+//        }
+//
+//
+//        public void go1(){
+//
+//            JPanel panel = new JPanel();
+//
+//            panel.setLayout(new GridLayout(3,3));
+//            panel.add(new JButton("Кнопка1"));
+//
+//            panel.add(new JButton("Кнопка2"));
+//            panel.add(new JButton("Кнопка3"));
+//            setContentPane(panel);
+//        }
+//
+//    public void go2(){
+//        //JPanel panel = new JPanel();
+//        Box box = Box.createVerticalBox();
+//
+//        box.add(new JButton("22"));
+//        box.add(Box.createVerticalGlue());
+//        box.add(new JButton("33"),Box.createVerticalStrut(60));
+//        box.add(new JButton("44"),Box.createVerticalStrut(60));
+//
+//
+//
+//        setContentPane(box);
+//    }
+//    public void go3(){
+//        JPanel panel = new JPanel();
+//        panel.setLayout(new FlowLayout());
+//        panel.add(new JButton("Кнопка3"));
+//        setContentPane(panel);
+//    }
+//
+//    }
 
 
-        Box box = Box.createVerticalBox();
-
-        JButton RB = new JButton("O---O");
-        JButton VG = new JButton("T---T");
-        JButton GH = new JButton("^---^");
-
-        RB.setAlignmentX(JComponent.LEFT_ALIGNMENT);
-        box.add(RB);
-        box.add(Box.createVerticalGlue());
-        VG.setAlignmentX(JComponent.RIGHT_ALIGNMENT);
-        box.add(VG);
-        box.add(Box.createVerticalGlue());
-        GH.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-        box.add(GH);
-
-        setContentPane(box);
 
 
-
-        setVisible(true);
-    }
-
-}
