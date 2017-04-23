@@ -1,12 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 
 /**
  * Created by user on 29.03.2017.
@@ -18,108 +11,90 @@ import java.awt.event.MouseListener;
  */
 public class Main {
     public static void main(String[] args) {
-       Form form = new Form();
-
+        Form form = new Form();
+        FormWithListeners fh = new FormWithListeners();
     }
-    
-
 }
 
 
+
 class Form extends JFrame {
-
-        Form(){
-            setBounds(500,400,  400,300);
-            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-            go1();
-
+    int x,y;
+    Form() {
+        setTitle("Test");
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBounds(300, 300, 500, 500);
 
 
-            setVisible(true);
+
+        //create JP1
+        Count count = new Count();
+        count.setBackground(Color.black);
+
+        JButton jb1 = new JButton("Предыдущая страница");
+        JButton jb2 = new JButton("Следующая страница");
+        count.add(jb1);
+        count.add(jb2);
+
+        //create JP2
+        JPanel jp2 = new JPanel();
+        //jp.setLayout(new FlowLayout());
+        JButton jb3 = new JButton("Test1");
+        JButton jb4 = new JButton("Test2");
+        jp2.add(jb3);
+        jp2.add(jb4);
+
+
+        getContentPane().add(BorderLayout.CENTER, count);
+        getContentPane().add(BorderLayout.SOUTH, jp2);
+        setVisible(true);
+    }
+
+
+    class Count extends JPanel {
+        @Override
+        public void paint(Graphics g) {
+            super.paint(g);
+            g.drawOval(x, y, 50, 50);
         }
+    }
+}
+class FormWithListeners extends JFrame { // necessary java.awt.event.*
+    int x, y;
+
+    FormWithListeners() {
+        setTitle("BorderLayout Demo");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setBounds(300, 300, 400, 300);
+
+        // create buttons
+        JButton btnFist = new JButton("First");
+        JButton btnSecond = new JButton("Second");
+
+        // add buttons listeners
 
 
-        public void go1(){
-
-            JPanel mainPanel  = new JPanel();
-            mainPanel.setLayout(new BorderLayout());
-            JPanel buttonsPanel   = new JPanel();
-           JButton button1 = new JButton("Test1");
-            button1.setPreferredSize(new Dimension(150, 80));
-            buttonsPanel.add(button1);
-            mainPanel.add(buttonsPanel, BorderLayout.NORTH);
-
-            button1.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    go2();
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
+        // create canvas with MouseAdapter
+        Canvas canvasPanel = new Canvas();
+        canvasPanel.setBackground(Color.white);
 
 
+        // panel with button
+        JPanel btnPanel = new JPanel();
+        btnPanel.add(btnFist);
+        btnPanel.add(btnSecond);
 
-        setContentPane(mainPanel);
+        // add btnPanel and canvas
+        getContentPane().add(BorderLayout.CENTER, canvasPanel);
+        getContentPane().add(BorderLayout.SOUTH, btnPanel);
+        setVisible(true);
+    }
 
+    class Canvas extends JPanel { // my canvas for painting
+        @Override
+        public void paint(Graphics g) {
+            super.paint(g);
+            g.drawOval(x, y, 50, 50);
         }
-
-    public void go2(){
-
-        Box box = Box.createVerticalBox();
-//        JButton jb1 = new JButton("22");
-//        jb1.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                go1();
-//            }
-//        });
-
-        //box.add(jb1);
-        box.add(Box.createVerticalGlue());
-        box.add(new JButton("33"),Box.createVerticalStrut(60));
-        box.add(new JButton("44"),Box.createVerticalStrut(60));
-
-
-
-        setContentPane(box);
     }
-    public void go3(){
-        JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout());
-        JButton jb1 = new JButton();
-        jb1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                go1();
-            }
-        });
-
-        panel.add(jb1);
-        setContentPane(panel);
-    }
-
-    }
-
-
-
-
+}
