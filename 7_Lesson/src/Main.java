@@ -20,221 +20,67 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        //Form form = new Form();
-        //Form2 form2 = new Form2();
+
+        Game game = new Game();
+
+
+
     }
 }
 
-class MyWindow extends JFrame {
 
-    Map jpMap;                               // Основное игровое поле
-    Font btnFont = new Font("Times New Roman", Font.PLAIN, 16);
+class Game extends JFrame {
 
-    // Шрифт для кнопок
-    public MyWindow() {                   // Конструктор окна
-        setSize(505, 587);                // Настройка размера окна
-        setResizable(false);              // Блокировка возможности изменения размер окна
-        setLocation(800, 200);         // Положение
-        setTitle("Tic-Tac-Toe");        // Заголовок
-
-// Закрытие программы по закрытию окна
+    Game(){
+        setTitle("Game");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jpMap = new Map();            // Создаем игровое поле
-        jpMap.startNewGame(3);    // Устанавливаем размер 3х3
+        setBounds(300,300, 500,500);
 
-// Добавляем панель с полем в центр формы
-        add(jpMap, BorderLayout.CENTER);
+        //Панели
+        JPanel midle = new JPanel();
+        JPanel souf = new JPanel();
 
-// Основная нижняя панель
-        JPanel jpBottom = new JPanel(new CardLayout());
-        jpBottom.setPreferredSize(new Dimension(1, 60));
-        add(jpBottom, BorderLayout.SOUTH);
+        //Кнопки
+        JButton jb1 = new JButton("");
+        JButton jb2 = new JButton("");
+        JButton jb3 = new JButton("");
+        JButton jb4 = new JButton("");
+        JButton jb5 = new JButton("");
+        JButton jb6 = new JButton("");
+        JButton jb7 = new JButton("");
+        JButton jb8 = new JButton("");
+        JButton jb9 = new JButton("");
+        JButton mainMenu = new JButton("В начало");
+        JButton end = new JButton("End");
 
-        // Панель с кнопками Старт/Выход
-        JPanel jpStartExit = new JPanel(new GridLayout());
-        JButton jbStart = new JButton("Начать новую игру");
-        jbStart.setFont(btnFont);
-        jbStart.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpSelectPlayers");
-            }
-        });
-        jpStartExit.add(jbStart);
-        JButton jbExit = new JButton("Выйти из игры");
-        jbExit.setFont(btnFont);
-        jbExit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        jpStartExit.add(jbExit);
-        jpBottom.add(jpStartExit, "jpStartExit");
-        // Создание панели выбора игроков
-        JPanel jpSelectPlayers = new JPanel(new GridLayout());
-        JButton jbHumanVsHuman = new JButton("Человек vs. Человек");
-        jbHumanVsHuman.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpSelectMap");
-            }
-        });
-        JButton jbHumanVsAI = new JButton("Человек vs. AI");
-        jbHumanVsAI.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpSelectMap");
-            }
-        });
-        jpSelectPlayers.add(jbHumanVsHuman);
-        jpSelectPlayers.add(jbHumanVsAI);
-        jpBottom.add(jpSelectPlayers, "jpSelectPlayers");
-        // Создание панели выбора поля
-        JPanel jpSelectMap = new JPanel(new GridLayout());
-        JButton jbSM3x3l3 = new JButton("Поле: 3x3 Серия: 3");
-        JButton jbSM5x5l4 = new JButton("Поле: 5x5 Серия: 4");
-        JButton jbSM10x10l5 = new JButton("Поле: 10x10 Серия: 5");
-        jpSelectMap.add(jbSM3x3l3);
-        jbSM3x3l3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpStartExit");
-                createMap(3);
-            }
-        });
-        jpSelectMap.add(jbSM5x5l4);
-        jbSM5x5l4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpStartExit");
-                createMap(5);
-            }
-        });
-        jpSelectMap.add(jbSM10x10l5);
-        jbSM10x10l5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpStartExit");
-                createMap(10);
-            }
-        });
-        jpBottom.add(jpSelectMap, "jpSelectMap");
-        ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpStartExit");
+        jb1.setText(" ");
+
+        //Работа с JFrame
+
+        midle.setLayout(new GridLayout(3,3));
+        midle.add(jb1);
+        midle.add(jb2);
+        midle.add(jb3);
+        midle.add(jb4);
+        midle.add(jb5);
+        midle.add(jb6);
+        midle.add(jb7);
+        midle.add(jb8);
+        midle.add(jb9);
+
+
+
+
+        souf.add(mainMenu);
+        souf.add(end);
+
+
+        getContentPane().add(BorderLayout.CENTER,midle);
+        getContentPane().add(BorderLayout.SOUTH,souf);
         setVisible(true);
     }
 
-    public void createMap(int size) { // Метод предназначен для старта новой игры, с заданным размером поля
-        jpMap.startNewGame(size);
-    }
-
-
-    public class Map extends JPanel {
-        private int linesCount;
-        private int dotsToWin = 3;
-        private final int PANEL_SIZE = 500;
-        private int CELL_SIZE;
-        private boolean gameOver;
-        private String gameOverMsg;
-        Random rand = new Random();
-        private int[][] field;
-        private final int PLAYER1_DOT = 1;
-        private final int PLAYER2_DOT = 2;
-
-        // конструктор поля
-        public Map() {
-            startNewGame(3);
-            setBackground(Color.white);
-// отлавливаем клики мыши по карте
-            addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    super.mouseReleased(e);
-                    int cmx, cmy;
-// рассчитываем координаты из пикселей в ячейки по Х и У
-                    cmx = e.getX() / CELL_SIZE;
-                    cmy = e.getY() / CELL_SIZE;
-                    if (!gameOver) {                                            // если игра все еще идет
-                        if (setDot(cmx, cmy, PLAYER1_DOT)) { // пробуем поставить фишку
-                            checkFieldFull();                                  // проверяем занятость
-                            checkWin(PLAYER1_DOT);               // проверяем победу первого игрока
-                            repaint();                                             // перерисовываем поле
-                            aiTurn();                                              // запускаем ход компьютера
-                        }
-                    }
-                }
-            });
-        }
-
-        // ход компьютера
-        public void aiTurn() {
-            if (gameOver) return;
-            int x, y;
-            do {
-                x = rand.nextInt(linesCount);
-                y = rand.nextInt(linesCount);
-            } while (!setDot(x, y, PLAYER2_DOT));
-            checkFieldFull();
-            checkWin(PLAYER2_DOT);
-            repaint();
-        }
-
-        public void startNewGame(int linesCount) {               // метод старта новой игры
-            this.linesCount = linesCount;
-            CELL_SIZE = PANEL_SIZE / linesCount;
-            gameOver = false;
-            field = new int[linesCount][linesCount];
-            repaint();
-        }
-
-        public void checkFieldFull() {                     // проверка поля на занятость
-            boolean b = true;
-            for (int i = 0; i < linesCount; i++) {
-                for (int j = 0; j < linesCount; j++) {
-                    if (field[i][j] == 0) b = false;        // если нашли хоть одно свободное поле – b = false
-                }
-            }
-            if (b) {                                               // если не нашли свободного поля
-                gameOver = true;                        // завершаем игры
-                gameOverMsg = "DRAW";         // пишем сообщение
-            }
-        }
-
-        public boolean checkWin(int ox) {      // проверка победы одного из игроков
-            for (int i = 0; i < linesCount; i++) {  // во всех ячейках запускаем проверяем все возможные линии
-                for (int j = 0; j < linesCount; j++) {
-                    if (checkLine(i, j, 1, 0, dotsToWin, ox) || checkLine(i, j, 0, 1, dotsToWin, ox) || checkLine(i, j, 1, 1, dotsToWin, ox) || checkLine(i, j, 1, -1, dotsToWin, ox)) {                                 // если хоть одна нашлась
-                        gameOver = true;                                                                        // завершаем игры
-                        if (PLAYER1_DOT == ox) gameOverMsg = "PLAYER 1 WIN"; // пишем сообщение
-                        if (PLAYER2_DOT == ox) gameOverMsg = "PLAYER 2 WIN"; // пишем сообщение
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        public boolean checkLine(int cx, int cy, int vx, int vy, int l, int ox) {                  // проверка линии
-            if (cx + l * vx > linesCount || cy + l * vy > linesCount || cy + l * vy < -1) return false;
-            for (int i = 0; i < l; i++) {
-                if (field[cx + i * vx][cy + i * vy] != ox) return false;
-            }
-            return true;
-        }
-
-        public boolean setDot(int x, int y, int dot) { // Метод для установки фишки на поле
-            if (field[x][y] == 0) {                             // Фишка ставится только если поле свободно
-                field[x][y] = dot;
-                return true;
-            }
-            return false;
-        }
-
-    }
 }
-
-
-
 
 
 
