@@ -3,7 +3,8 @@ package com.gb.lesson1.obstacles;
 import com.gb.lesson1.animals.Animal;
 
 /**
- * Created by Tim on 12.07.2016.
+ * Created by Gleb on 29.05.2017.
+ *
  */
 public abstract class Obstacle {
     private int value;

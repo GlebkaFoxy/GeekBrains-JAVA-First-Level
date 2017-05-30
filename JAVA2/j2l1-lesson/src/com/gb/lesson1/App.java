@@ -2,10 +2,11 @@ package com.gb.lesson1;
 
 import com.gb.lesson1.animals.*;
 import com.gb.lesson1.obstacles.*;
+import com.gb.lesson1.obstacles.Darck;
 
 /**
- * Created by Tim on 12.07.2016.
- */
+ * Created by Gleb on 29.05.2017.
+ */;
 public class App {
     public static void main(String[] args) {
         System.out.println("Готовимся к старту...");
@@ -21,9 +22,9 @@ public class App {
         Obstacle[] obstacles = new Obstacle[4];
 
         obstacles[0] = new Cross(400); //бег на 400 метров
-        obstacles[1] = new Darck (50); //50% Зрение в темноте
-        obstacles[2] = new Wall(3); //трехметровая стена
-        obstacles[3] = new Water(200);//200 метров вплавь
+        obstacles[1] = new Wall(3); //трехметровая стена
+        obstacles[2] = new Water(200);//200 метров вплавь
+        obstacles[3]= new Darck(50); //50% Зрение в темноте
 
         System.out.println("Старт!");
 

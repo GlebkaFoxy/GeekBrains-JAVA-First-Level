@@ -1,9 +1,9 @@
 package com.gb.lesson1.animals;
 
 /**
- * Created by Глеб on 07.10.2016.
+ * Created by Gleb on 29.05.2017.
  */
-public class Owl extends Animal implements Swimable, Jumpable, Darckness {
+public class Owl extends Animal implements Swimable, Jumpable, sightInDarck {
     private static final int MAX_CROSS_DIST = 400;
 
     private static final int MAX_JUMP_HEIGHT = 10;
@@ -13,10 +13,10 @@ public class Owl extends Animal implements Swimable, Jumpable, Darckness {
     private static final int MAX_DARCK = 100;
 
 
-    public Owl(String name){super(name, Owl.MAX_CROSS_DIST);}
+    public Owl (String name){super(name, Owl.MAX_CROSS_DIST);}
 
     @Override
-    public void seing (int darck) {
+    public void seeInDark (int darck) {
         if(darck < Owl.MAX_DARCK) {
             System.out.println(getName() + " продолжает путь!");
         } else {
