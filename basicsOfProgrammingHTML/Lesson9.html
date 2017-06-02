@@ -1,0 +1,21 @@
+<meta charset-"utf-16">
+<script>
+
+var num = 0;
+var plaerSelect;
+
+do{
+	//Думал через 2 if
+	// plaerSelect = prompt("Хотите продолжить игру? 1 или любой символ");
+	// if (plaerSelect!='1') {break;}
+
+	if ((Math.random()*6)<1) {
+		alert("Фенито аля комедия "); 
+		break;}
+	num++;
+
+}while(prompt("Хотите продолжить игру? 1 или любой символ")=='1');
+
+alert("раундов сыграно "+num);
+
+</script>

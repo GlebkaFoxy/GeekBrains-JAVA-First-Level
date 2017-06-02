@@ -1,0 +1,14 @@
+<meta charset-"utf-16">
+<script>
+
+var money = parseInt(prompt("Введите сумму денег, внесенную в банк"));
+var persent = prompt("% годовых");
+var ears = prompt("Введите количество лет");
+
+for (var i = 1; i <= ears; i++) {
+
+	money=money+(money/100*persent);
+	alert(Math.floor(money)+" Год:"+i);
+}
+
+</script>
