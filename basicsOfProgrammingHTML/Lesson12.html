@@ -1,37 +1,43 @@
 <meta charset-"utf-16">
 <script>
 
-function getRandomCart(min, max){
+function getRandomInt(min, max){
 	return Math.floor(Math.random()*(max-min+1))+min;
 }
 
-function getCard() {
-	var carts=['6','7','8','9','10','J','Q','K','A'];
-	var a =carts.length;
-	return carts[getRandomCart(0,carts.length-1)];
+function getCard(){
+	var cards=['6','7','8','9','10','J','Q','K','A'];
+	return cards[getRandomInt(0, cards.length-1)];
 }
 
-function summPlayer(app){
+var Dealer = ['8','A','A'];
+var Player = [getCard(),getCard()]; 
+
+
+function Summ(app){
 	var sum=0;
-	
-	for (var i = 0; i < app.length; i++) {
+
+	for (var i = 0; i <app.length; i++) {
 		if (app[i]=='J'||app[i]=='Q'||app[i]=='K') {
-			app[i]=10;
-		} 
-		if (sum>10&&app[i]=='A') {
-		app[i]=1;
-		}else if (app[i]=='A') {
-			app[i]=11;
-		}
-	sum= sum + parseInt(app[i]);
+			app[i]=10;}
+	if (sum<10&&app[i]=='A') {
+		app[i]=11;
+	}else if (app[i]=='A') {app[i]=1;}
+	
+
+	sum=sum+parseInt(app[i]);
 	}
-	return sum;	
+
+	return sum;
 }
 
-var dialer =[getCard()];
-var player = ['A',getCard(),'A'];
-alert('Диллер имеет на руках одну карту: '+dialer);
-alert('Игрок имеет на руках две карты: '+player);
-alert(summPlayer(player));
 
+
+
+
+
+alert('Диллер '+Dealer.join(' ')+' Игрок '+Player.join(' '));
+alert(Summ(Dealer));
+
+	
 </script>

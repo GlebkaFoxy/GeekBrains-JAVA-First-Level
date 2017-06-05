@@ -1,0 +1,84 @@
+<meta charset-"utf-16">
+<script>
+
+function getRandomInt(min, max){
+	return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function getCard(){
+	var cards=['2','3','4','6','7','8','9','10','J','Q','K','A'];
+	return cards[getRandomInt(0, cards.length-1)];
+}
+
+var Dealer = [getCard()];
+var Player = [getCard(),getCard()]; 
+
+
+function Summ(app){
+	var sum=0;
+
+	for (var i = 0; i <app.length; i++) {
+		if (app[i]=='J'||app[i]=='Q'||app[i]=='K') {
+			app[i]=10;}
+	if (sum<11&&app[i]=='A') {
+		app[i]=11;
+	}else if (app[i]=='A') {app[i]=1;}
+	
+
+	sum=sum+parseInt(app[i]);
+	}
+
+	return sum;
+}
+
+
+
+
+
+function getStatus(){
+return 'Диллер '+Dealer.join(' ')+' Игрок '+Player.join(' ');
+}
+
+var ansver='';
+
+if (Summ(Player)==21) {alert('Дьявольское везение, на раздаче Black Jack $_$');
+}else{
+do{
+	if (Summ(Player)>21) {
+		alert(getStatus()+' Игрок проиграл.');
+		break;
+	}if (Summ(Player)==21) {
+		alert('Black Jack '+ getStatus());
+		break;
+	}
+ansver = prompt(getStatus()+' хотите взять ещё одну карту? ответьте да или нет');
+
+if (ansver=='да') {
+	
+	Player.push(getCard());
+}else{
+	
+
+while(Summ(Dealer)<17){
+	Dealer.push(getCard());
+}
+
+if (Summ(Dealer)==21) {alert(' У диллера BJ '+getStatus());}
+else if (Summ(Dealer)>21) {alert(' Диллер проиграл '+getStatus());}
+else if (Summ(Player)==Summ(Dealer)) {alert(' Ничья '+getStatus());}
+else if (Summ(Player)>Summ(Dealer)) {alert(' Игрок победил '+ getStatus());}
+else{alert(' Диллер победил '+getStatus());}
+
+}
+
+
+
+}while(ansver=='да');
+
+
+
+}
+
+
+
+</script>
